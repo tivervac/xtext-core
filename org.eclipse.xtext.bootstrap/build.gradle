@@ -1,0 +1,16 @@
+dependencies {
+	compile project(':org.eclipse.xtext')
+	
+	// the following dependencies are required in order to resolve
+	//  the classes referenced in the MWE2 file,
+	mwe2Compile "org.eclipse.xtext:org.eclipse.xtext.common.types:$versions.xtext_bootstrap"
+	mwe2Compile "org.eclipse.xtext:org.eclipse.xtext.generator:$versions.xtext_bootstrap"
+	
+	// the following dependency is need until the 'GenerateXtext.mwe2' has been migrated to the new generator
+	//  it requires an up-to-date snapshot of xtext-eclipse in mavenLocal
+	//  if the xtext-eclipse snapshot version doesn't match this projects version, change '$version' to the correct one.
+	mwe2Compile "org.eclipse.xtext:org.eclipse.xtext.idea.generator:$version"
+	
+	// as well as the Mwe2Launcher needed to execute the workflow
+	mwe2Runtime "org.eclipse.emf:org.eclipse.emf.mwe2.launch:$versions.emfMwe2"
+}
